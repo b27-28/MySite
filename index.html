@@ -1,1 +1,102 @@
-<iframe src="http://89.178.230.30/index.html" height="500px" width="500px"></iframe>
+  <meta charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<div class="page1">
+  <div class="prog"><label class="proglab">1/150</label></div>
+  <div class="side1 clk"><label class="side1text"></label></div>
+  <div class="side2 clk">
+    <label class="side2pinin"></label>
+    <label class="side2text"></label>
+  </div>
+</div>
+
+<style>
+/* linear-gradient(#0ca7c3, #4b23db */
+/*   <div class="add">
+    <label class="plus">+</label>
+  </div> */
+html{background:white;min-width:500px;}
+.page1 {position:absolute;background:#f7f7f9;width:100%;height:100%;top:0;left:50%;transform:translate(-50%);}
+.prog{position:absolute;background:none;width:60%;height:10%;top:5%;left:20%;}
+.side1, .side2{position:absolute;background:#0ca7c3;width:60%;height:40%;top:15%;left:20%;border-radius:3vh 3vh 3vh 3vh;-webkit-transition: all 600ms 0ms ease-in-out;-webkit-transform-style: preserve-3d;z-index:5;}
+.side2{transform: rotateY(-90deg);}
+.side1text, .side2text, .next-text, .side2pinin, .proglab{display:flex;justify-content:center;align-items:center;width:100%;height:100%;color:#f7f7f9;font-size:10vh;}
+.proglab{color:black;font-size:5vh;}
+.side2text{font-size:5vh;text-align: center;}
+.side2pinin{position:absolute;height:50%;font-size:3vh;}
+.next{position:absolute;background:#0ca7c3;width:50%;height:10%;top:55%;left:25%;border-radius:3vh 3vh 3vh 3vh;visibility:hidden;}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+//Адаптивная верстка
+function resize(){
+      $(".page1").innerHeight();
+      $height=$(".page1").innerHeight()*9;
+    $(".page1").innerWidth($height/16);
+}
+$(window).resize(function() {
+  resize();
+})
+resize();
+//!! ВСЕ ФУНКЦИИ!!//
+//Функции вращения карточек
+
+function side1(){
+
+    $(".side1").css('transform', 'rotateY(90deg)');
+    setTimeout(function(){
+    $(".side2").css('transform', 'rotateY(0deg)');
+    fontresize2();
+    },600);}
+function side2(){
+    $(".side2").css('transform', 'rotateY(90deg)');
+
+  setTimeout(function(){
+    $(".side1").css('transform', 'rotateY(0deg)');
+        $Test++;
+    $(".side1text").html('<span class="s1">'+CharArr[''+$Test]+'</span>');
+    $(".side2text").html('<span class="s2">'+TransArr[''+$Test]+'</span>');
+    $(".side2pinin").html('<span class="spin">['+PinArr[''+$Test]+']</span>');
+    $(".proglab").html(''+($Test+1)+'/150');
+            fontresize1();
+    },800);}
+//ВСЕ ПЕРЕМЕННЫЕ
+var $Test=0;
+var $next=0;
+var CharArr=["我","我们","你","他","她","这 (这儿)","那 (那儿)","哪","哪儿","谁","什么","多少","几","怎么","怎么样","一","二","三","四","五","六","七","八","九","十","个","岁","本","些","块","不","没","很","太","都","一点儿","和","在","的","了","吗","呢","喂","家","学校","饭店","商店","医院","中国","北京","上","下","前面","后面","里","今天","明天","昨天","上午","中午","下午","年","月","号","星期","点","分钟","现在","时候","爸爸","妈妈","儿子","女儿","老师","学生","同学","朋友","医生","先生","小姐","衣服","水","菜","米饭","水果","苹果","茶","杯子","钱","飞机","出租车","电视","电脑","电影","天气","猫","狗","东西","人","名字","书","汉语","字","桌子","椅子","谢谢","不客气","再见","请","对不起","没关系","是","有","看","听","说","读","写","看见","叫","来","回","去","吃","喝","睡觉","打电话","做","买","开","坐","住","学习","工作","下雨","爱","喜欢","想","认识","会","能","好","大","小","多","少","冷","热","高兴","漂亮"];
+var PinArr=["wǒ","wǒmen","nǐ"," tā "," tā ","zhè ( zhèr)","nà (nàr)","nǎ","nǎr","shéi","shénme","duōshǎo","jǐ","zěnme","zěnmeyàng","yī","èr","sān","sì","wǔ","liù","qī","bā","jiǔ","shí","gè","suì","běn","xiē","kuài","bù","méi","hěn","tài","dōu","yīdiǎnr","hé","zài","de","le","ma","ne","wèi","jiā","xuéxiào","fàndiàn","shāngdiàn","yīyuàn","Zhōngguò","Běijīng","shàng","xià","qiánmiàn","hòumiàn","lǐmiàn","jīntiān","míngtiān","zuótiān","shàngwǔ","zhōngwǔ","xiàwǔ","nián","yuè","hào","xīngqī","diǎn","fēnzhōng","xiànzài","shíhou","bàba","māma","érzi","nǚér","lǎoshī","xuéshēng","tóngxué","péngyǒu","yīshēng","xiānsheng","xiǎojiě","yīfu","shuǐ","cài","mǐfàn","shuǐguǒ","píngguǒ","chá","bēizi","qián","fēijī","chūzūchē","diànshì","diànnǎo","diànyǐng","tiānqì","māo","gǒu","dōngxi","rén","míngzi","shū","hànyǔ","zì","zhuōzi","yǐzi","xièxie","búkèqì","zàijiàn","qǐng","duìbùqǐ","méiguānxì","shì","yǒu","kàn","tīng","shuō","dú","xiě","kànjiàn","jiào","lái","huí","qù","chī","hē","shuìjiào","dǎdiànhuà","zuò","mǎi","kāi","zuò","zhù","xuéxí","gōngzuò","xiàyǔ","ài","xǐhuān","xiǎng","rènshi","huì","néng","hǎo","dà","xiǎo","duō","shǎo","lěng","rè","gāoxìng","piàoliang"];
+var TransArr=["I, me","we, us (pl.)","you","he, him","she, her","this (here)","that (there)","which","where","who","what, why","how many, how much","a few, how many","how","how about","one","two","three","four","five","six","seven","eight","nine","ten","(for normal objects)","(for age)","(for books)","some","piece, chunk","no","no","quite, very","too","all","a little bit","and","in, at","of; structural particle: used before a noun, linking it to preceding possessive or descriptive attributive","(completed action marker); (modal particle intensifying preceding clause)","(question tag)","(question particle for subjects already mentioned)","hello","home","school","restaurant","store","hospital","China","Beijing","up","down","front","behind","inside","today","tomorrow","yesterday","morning","noon","afternoon","year","month","number/date","week","o’clock","minute","now","time","father","mother","son","daughter","teacher","student","classmate","friend","doctor","sir","Miss","cloth","water","dish","rice","fruit","apple","tea","cup","money","airplane","taxi","television","computer","movie","weather","cat","dog","thing","person","name","book","mandarin Chinese","character","desk","chair","thank","you are welcome","good-bye","please","sorry","It doesn’t matter","be (am, is, are)","have","look","listen","speak","read","write","see","call","come","return","go","eat","drink","sleep","make phone call","do","buy","open","sit","live","study","work","rain","love","love, like","want","know","can","can, be able to","good","big","small","many, much","few, little","cold","hot","happy","beautiful"];
+
+//ВСЕ КЛИКИ (поменять на онТач
+$(".side1").on( "click", function(){side1()});
+$(".side2").on( "click", function(){side2()});
+//тестим
+
+
+  console.log("иероглифов:"+CharArr.length);
+  console.log("пиньинь:"+PinArr.length);
+  console.log("перевод:"+TransArr.length);
+$(".side1text").html('<span class="s1">'+CharArr[''+$Test]+'</span>');
+$(".side2text").html('<span class="s2">'+TransArr[''+$Test]+'</span>');
+$(".side2pinin").html('<span class="spin">['+PinArr[''+$Test]+']</span>');
+function fontresize1(){
+        $tw=$(".side1text").width();//узнаем ширину дива
+        $(".side1text").css('font-size','10vh');//возвращаем начальное значение размера шрифта, чтоб не было прогрессии уменьшения
+        $(".side1text").css('font-size',''+($tw/5)+'');//адаптируем шрифт по ширине
+}
+function fontresize2(){
+        $tw=$(".side2text").width();//узнаем ширину дива
+        $(".side2text").css('font-size','5vh');//возвращаем начальное значение размера шрифта, чтоб не было прогрессии уменьшения
+        $(".side2text").css('font-size',''+($tw/10)+'');//адаптируем шрифт по ширине
+}
+</script>
