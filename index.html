@@ -1,4 +1,16 @@
   <meta charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<div class="general-div">
+<div class="main-menu">
+	<div class="start_hsk1">
+		<label class="start_hsk1_text">HSK 1</label>
+	</div>
+	<div class="start_hsk2">
+		<label class="start_hsk1_text">HSK 2</label>
+	</div>
+	<div class="start_hsk3">
+		<label class="start_hsk1_text">HSK 3</label>
+	</div>
+</div>
 
 <div class="page1">
   <div class="prog"><label class="proglab">1/150</label></div>
@@ -9,17 +21,24 @@
   </div>
 </div>
 
+</div>
 <style>
 /* linear-gradient(#0ca7c3, #4b23db */
 /*   <div class="add">
     <label class="plus">+</label>
   </div> */
-html{background:white;min-width:500px;}
-.page1 {position:absolute;background:#f7f7f9;width:100%;height:100%;top:0;left:50%;transform:translate(-50%);}
+html{background:white;min-width:500px;width:50%;}
+.general-div{}
+.page1, .general-div, .main-menu {position:absolute;background:#f7f7f9;width:100%;height:100%;top:0;left:50%;transform:translate(-50%);}
+.page1{left:200%;}
+.start_hsk1, .start_hsk2, .start_hsk3{color:black;position:absolute;width:70%;left:15%; height:20%;background:white;border-radius:1vh; top:5%;}
+.start_hsk2{top:30%;}
+.start_hsk3{top:55%;}
 .prog{position:absolute;background:none;width:60%;height:10%;top:5%;left:20%;}
 .side1, .side2{position:absolute;background:#0ca7c3;width:60%;height:40%;top:15%;left:20%;border-radius:3vh 3vh 3vh 3vh;-webkit-transition: all 600ms 0ms ease-in-out;-webkit-transform-style: preserve-3d;z-index:5;}
 .side2{transform: rotateY(-90deg);}
-.side1text, .side2text, .next-text, .side2pinin, .proglab{display:flex;justify-content:center;align-items:center;width:100%;height:100%;color:#f7f7f9;font-size:10vh;}
+.side1text, .side2text, .next-text, .side2pinin, .proglab, .start_hsk1_text{display:flex;justify-content:center;align-items:center;width:100%;height:100%;color:#f7f7f9;font-size:10vh;}
+.start_hsk1_text{color:black}
 .side1text{white-space: nowrap;text-align: center;}
 .proglab{color:black;font-size:5vh;}
 .side2text{font-size:5vh;text-align: center;top:10%;}
@@ -39,11 +58,17 @@ html{background:white;min-width:500px;}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
+function hsk1(){
+$( ".page1" ).animate({
+  left: '50%'
+},400);
+
+}
 //Адаптивная верстка
 function resize(){
-      $(".page1").innerHeight();
-      $height=$(".page1").innerHeight()*9;
-    $(".page1").innerWidth($height/16);
+      $(".general-div").innerHeight();
+      $height=$(".general-div").innerHeight()*9;
+    $(".general-div").innerWidth($height/16);
 }
 $(window).resize(function() {
   resize();
@@ -87,6 +112,7 @@ shuffle(HSK1MAr);
 //ВСЕ КЛИКИ (поменять на онТач
 $(".side1").on( "touchstart", function(){side1()});
 $(".side2").on( "touchstart", function(){side2()});
+$(".start_hsk1_text").on( "touchstart", function(){hsk1()});
 //тестим
 
 
